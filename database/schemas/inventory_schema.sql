@@ -1,0 +1,203 @@
+-- ============================================================================
+-- INVENTORY MANAGEMENT SYSTEM SCHEMA
+-- ============================================================================
+-- This is a CHALLENGE exercise for advanced students.
+-- You will design and implement the complete database schema for an 
+-- inventory management system from scratch.
+--
+-- LEARNING OBJECTIVES:
+-- - Design a multi-table database schema with relationships
+-- - Implement many-to-many relationships using junction tables
+-- - Apply appropriate constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL)
+-- - Use CHECK constraints for business logic validation
+-- - Create indexes for query performance
+--
+-- REQUIREMENTS:
+-- Your schema should support the following use cases:
+-- - UC-11: Add a Product (name, description, price, stock quantity)
+-- - UC-12: Update Stock Levels (increase/decrease stock, prevent negative)
+-- - UC-13: Search Products by Category (many-to-many relationship)
+-- - UC-14: Find Products by Supplier (one-to-many relationship)
+-- - UC-15: Low Stock Alert (query products below threshold)
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- TABLE 1: Products
+-- ----------------------------------------------------------------------------
+-- TODO: Create a 'products' table with the following fields:
+--
+-- REQUIRED FIELDS:
+-- - id: Integer, primary key, auto-increment
+-- - name: Text, required, cannot be empty
+-- - description: Text, optional (can be NULL)
+-- - price: Real (decimal), required, must be positive (use CHECK constraint)
+-- - stock_quantity: Integer, required, must be non-negative (use CHECK constraint)
+-- - supplier_id: Integer, foreign key to suppliers table
+-- - created_at: Timestamp, default to current timestamp
+-- - updated_at: Timestamp, default to current timestamp
+--
+-- HINTS:
+-- - Use CHECK (price > 0) to ensure positive prices
+-- - Use CHECK (stock_quantity >= 0) to prevent negative stock
+-- - Use FOREIGN KEY (supplier_id) REFERENCES suppliers(id) for relationship
+-- - Look at library_schema.sql for examples of constraints
+--
+-- EXAMPLE STRUCTURE (you need to write the actual SQL):
+-- CREATE TABLE IF NOT EXISTS products (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     name TEXT NOT NULL,
+--     ...
+-- );
+
+-- TODO: Write your CREATE TABLE statement for products here
+
+
+-- ----------------------------------------------------------------------------
+-- TABLE 2: Categories
+-- ----------------------------------------------------------------------------
+-- TODO: Create a 'categories' table with the following fields:
+--
+-- REQUIRED FIELDS:
+-- - id: Integer, primary key, auto-increment
+-- - name: Text, required, unique (no duplicate category names)
+-- - description: Text, optional
+-- - created_at: Timestamp, default to current timestamp
+--
+-- HINTS:
+-- - Use UNIQUE constraint on name to prevent duplicate categories
+-- - Categories are independent entities (no foreign keys needed)
+--
+-- EXAMPLE:
+-- A category might be "Electronics", "Clothing", "Food", etc.
+
+-- TODO: Write your CREATE TABLE statement for categories here
+
+
+-- ----------------------------------------------------------------------------
+-- TABLE 3: Suppliers
+-- ----------------------------------------------------------------------------
+-- TODO: Create a 'suppliers' table with the following fields:
+--
+-- REQUIRED FIELDS:
+-- - id: Integer, primary key, auto-increment
+-- - name: Text, required, unique
+-- - contact_name: Text, optional (name of contact person)
+-- - contact_email: Text, optional (should be valid email format)
+-- - contact_phone: Text, optional
+-- - address: Text, optional
+-- - created_at: Timestamp, default to current timestamp
+--
+-- HINTS:
+-- - Suppliers provide products (one supplier can provide many products)
+-- - Use UNIQUE on name to prevent duplicate suppliers
+-- - Email validation can be done in application code (Python)
+
+-- TODO: Write your CREATE TABLE statement for suppliers here
+
+
+-- ----------------------------------------------------------------------------
+-- TABLE 4: Product_Categories (Junction Table)
+-- ----------------------------------------------------------------------------
+-- TODO: Create a 'product_categories' junction table for many-to-many relationship
+--
+-- REQUIRED FIELDS:
+-- - id: Integer, primary key, auto-increment
+-- - product_id: Integer, foreign key to products table
+-- - category_id: Integer, foreign key to categories table
+-- - created_at: Timestamp, default to current timestamp
+--
+-- CONSTRAINTS:
+-- - FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+-- - FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+-- - UNIQUE constraint on (product_id, category_id) to prevent duplicates
+--
+-- HINTS:
+-- - This is a junction table that connects products and categories
+-- - A product can belong to multiple categories
+-- - A category can contain multiple products
+-- - ON DELETE CASCADE means if a product is deleted, its category links are also deleted
+-- - UNIQUE (product_id, category_id) prevents the same product-category pair twice
+--
+-- WHY MANY-TO-MANY?
+-- Example: A "Wireless Mouse" product might belong to both "Electronics" 
+-- and "Computer Accessories" categories.
+
+-- TODO: Write your CREATE TABLE statement for product_categories here
+
+
+-- ----------------------------------------------------------------------------
+-- OPTIONAL: Indexes for Performance
+-- ----------------------------------------------------------------------------
+-- TODO (OPTIONAL): Create indexes to improve query performance
+--
+-- SUGGESTED INDEXES:
+-- - Index on products.supplier_id (for UC-14: Find Products by Supplier)
+-- - Index on products.stock_quantity (for UC-15: Low Stock Alert)
+-- - Index on product_categories.category_id (for UC-13: Search by Category)
+--
+-- SYNTAX:
+-- CREATE INDEX IF NOT EXISTS idx_products_supplier ON products(supplier_id);
+--
+-- WHY INDEXES?
+-- Indexes speed up queries that filter or join on these columns.
+-- Trade-off: Faster reads, slightly slower writes.
+
+-- TODO: Write your CREATE INDEX statements here (optional)
+
+
+-- ============================================================================
+-- VERIFICATION QUERIES
+-- ============================================================================
+-- After creating your schema, you can verify it works with these queries:
+--
+-- 1. Insert a supplier:
+--    INSERT INTO suppliers (name, contact_email) 
+--    VALUES ('Tech Supplies Inc', 'contact@techsupplies.com');
+--
+-- 2. Insert a product:
+--    INSERT INTO products (name, description, price, stock_quantity, supplier_id)
+--    VALUES ('Wireless Mouse', 'Ergonomic wireless mouse', 29.99, 50, 1);
+--
+-- 3. Insert a category:
+--    INSERT INTO categories (name, description)
+--    VALUES ('Electronics', 'Electronic devices and accessories');
+--
+-- 4. Link product to category:
+--    INSERT INTO product_categories (product_id, category_id)
+--    VALUES (1, 1);
+--
+-- 5. Query products by category (JOIN):
+--    SELECT p.name, p.price, p.stock_quantity
+--    FROM products p
+--    JOIN product_categories pc ON p.id = pc.product_id
+--    WHERE pc.category_id = 1;
+--
+-- 6. Query low stock products:
+--    SELECT p.name, p.stock_quantity, s.name as supplier_name
+--    FROM products p
+--    JOIN suppliers s ON p.supplier_id = s.id
+--    WHERE p.stock_quantity < 10
+--    ORDER BY p.stock_quantity ASC;
+-- ============================================================================
+
+-- ============================================================================
+-- CHALLENGE EXTENSIONS (Optional)
+-- ============================================================================
+-- If you want extra practice, consider adding:
+--
+-- 1. Stock Movement History Table:
+--    Track all stock changes (increases/decreases) with timestamps
+--    Fields: id, product_id, quantity_change, reason, created_at
+--
+-- 2. Product Reviews Table:
+--    Allow customers to review products
+--    Fields: id, product_id, rating, comment, created_at
+--
+-- 3. Price History Table:
+--    Track price changes over time
+--    Fields: id, product_id, old_price, new_price, changed_at
+--
+-- 4. Reorder Levels:
+--    Add reorder_level and reorder_quantity fields to products table
+--    Automatically flag products that need reordering
+-- ============================================================================

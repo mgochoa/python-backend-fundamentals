@@ -1,0 +1,63 @@
+# Python Backend Learning Project - Git Ignore File
+# This file tells Git which files and directories to ignore (not track)
+
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Database files (students create their own)
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Environment variables
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MyPy type checking
+.mypy_cache/
+
+# Student solution files (optional - students can choose to track these)
+# exercises/solutions/my_solutions/
+
+# Learning Note:
+# The .gitignore file helps keep your repository clean by excluding:
+# - Generated files (like __pycache__)
+# - Personal files (like IDE settings)
+# - Sensitive data (like database files with real data)
+# - Large files that don't need version control

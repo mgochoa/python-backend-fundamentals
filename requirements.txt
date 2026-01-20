@@ -1,0 +1,12 @@
+# Python Backend Learning Project - Dependencies
+
+# SQLite3 is built into Python, no installation needed
+
+# Optional: For Flask API example (students can install if they want to try the API)
+# flask==3.0.0
+
+# Optional: For better development experience
+# python-dotenv==1.0.0  # For environment variable management
+
+# Note: This project is designed to work with minimal dependencies.
+# The core functionality only requires Python's built-in sqlite3 module.

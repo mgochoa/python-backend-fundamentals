@@ -1,0 +1,249 @@
+-- ============================================================================
+-- Todo System Database Schema
+-- ============================================================================
+-- This schema is a GUIDED EXERCISE for you to practice database design.
+-- Some parts are complete (for you to study), and some parts have TODO
+-- comments where YOU need to add code.
+--
+-- Learning Objectives:
+--   - Practice adding fields to an existing table
+--   - Learn how to create a new table from scratch
+--   - Understand foreign key relationships
+--   - Apply constraints to enforce data integrity
+--
+-- Instructions:
+--   1. First, study the basic tasks table structure below
+--   2. Complete the TODOs to add missing fields to the tasks table
+--   3. Create the categories table following the hints provided
+--   4. Add a foreign key relationship between tasks and categories
+--
+-- Hint: Refer to database/schemas/library_schema.sql for examples of:
+--   - How to add fields with constraints
+--   - How to create foreign key relationships
+--   - How to use DEFAULT values
+-- ============================================================================
+
+-- ============================================================================
+-- TASKS TABLE
+-- ============================================================================
+-- Stores todo tasks that users need to complete.
+-- This table is PARTIALLY COMPLETE - you need to add more fields!
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS tasks (
+    -- Primary key: Uniquely identifies each task
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    
+    -- Title of the task (what needs to be done)
+    -- NOT NULL: Every task must have a title
+    title TEXT NOT NULL,
+    
+    -- Detailed description of the task (optional)
+    -- Can be NULL if the title is self-explanatory
+    description TEXT,
+    
+    -- ========================================================================
+    -- TODO 1: Add a 'status' field
+    -- ========================================================================
+    -- The status field should track whether a task is pending, in progress,
+    -- or completed.
+    --
+    -- Requirements:
+    --   - Field name: status
+    --   - Data type: TEXT
+    --   - Should NOT be NULL (every task must have a status)
+    --   - Default value: 'pending' (new tasks start as pending)
+    --
+    -- Valid status values (enforced in application code):
+    --   - 'pending': Task hasn't been started yet
+    --   - 'in_progress': Task is currently being worked on
+    --   - 'completed': Task is finished
+    --
+    -- Hint: Look at the 'available' field in the books table for an example
+    -- of using DEFAULT values.
+    --
+    -- Write your code here:
+    -- status TEXT NOT NULL DEFAULT 'pending',
+    
+    -- ========================================================================
+    -- TODO 2: Add a 'priority' field
+    -- ========================================================================
+    -- The priority field indicates how important/urgent a task is.
+    --
+    -- Requirements:
+    --   - Field name: priority
+    --   - Data type: TEXT
+    --   - Should NOT be NULL (every task must have a priority)
+    --   - Default value: 'medium' (most tasks are medium priority)
+    --
+    -- Valid priority values (enforced in application code):
+    --   - 'low': Can be done later
+    --   - 'medium': Normal priority
+    --   - 'high': Urgent, should be done soon
+    --
+    -- Write your code here:
+    -- priority TEXT NOT NULL DEFAULT 'medium',
+    
+    -- ========================================================================
+    -- TODO 3: Add a 'due_date' field
+    -- ========================================================================
+    -- The due_date field stores when the task should be completed by.
+    --
+    -- Requirements:
+    --   - Field name: due_date
+    --   - Data type: DATE
+    --   - Should be NULL by default (not all tasks have deadlines)
+    --   - No DEFAULT value needed (NULL is the default)
+    --
+    -- Hint: Look at the 'return_date' field in the loans table for an example
+    -- of an optional date field.
+    --
+    -- Write your code here:
+    -- due_date DATE,
+    
+    -- ========================================================================
+    -- TODO 4: Add a 'category_id' field (foreign key)
+    -- ========================================================================
+    -- The category_id field links a task to a category (e.g., "Work", "Personal").
+    -- This is a FOREIGN KEY that references the categories table.
+    --
+    -- Requirements:
+    --   - Field name: category_id
+    --   - Data type: INTEGER
+    --   - Should be NULL by default (tasks can exist without a category)
+    --   - Will reference categories(id) - you'll add the FOREIGN KEY constraint
+    --     at the end of the table definition
+    --
+    -- Note: We'll add the actual FOREIGN KEY constraint after all fields are defined.
+    -- For now, just add the field definition.
+    --
+    -- Write your code here:
+    -- category_id INTEGER,
+    
+    -- Timestamp when the task was created
+    -- This field is COMPLETE - study how it works!
+    -- DEFAULT CURRENT_TIMESTAMP: Automatically set to current date/time
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    
+    -- ========================================================================
+    -- TODO 5: Add FOREIGN KEY constraint for category_id
+    -- ========================================================================
+    -- After all field definitions, add a foreign key constraint that links
+    -- category_id to the categories table.
+    --
+    -- Requirements:
+    --   - Links category_id to categories(id)
+    --   - Ensures that if a category_id is set, it must reference a valid category
+    --
+    -- Hint: Look at the FOREIGN KEY constraints in the loans table for examples.
+    --
+    -- Write your code here (after the last field, before the closing parenthesis):
+    -- ,
+    -- FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+-- ============================================================================
+-- CATEGORIES TABLE
+-- ============================================================================
+-- TODO 6: Create the categories table
+-- ============================================================================
+-- Categories allow users to organize their tasks into groups like "Work",
+-- "Personal", "Shopping", "Health", etc.
+--
+-- Requirements:
+--   - Table name: categories
+--   - Fields needed:
+--     1. id: INTEGER PRIMARY KEY AUTOINCREMENT
+--        (Uniquely identifies each category)
+--     
+--     2. name: TEXT NOT NULL UNIQUE
+--        (Category name like "Work" or "Personal")
+--        (UNIQUE ensures no duplicate category names)
+--     
+--     3. created_at: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+--        (When the category was created)
+--
+-- Hint: Follow the same pattern as the books or members table.
+-- Use CREATE TABLE IF NOT EXISTS to prevent errors if table already exists.
+--
+-- Write your code here:
+-- CREATE TABLE IF NOT EXISTS categories (
+--     id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     name TEXT NOT NULL UNIQUE,
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- ============================================================================
+-- LEARNING NOTES
+-- ============================================================================
+-- Key Concepts in This Schema:
+--
+-- 1. Status and Priority Fields:
+--    - Use TEXT type for enum-like values
+--    - Set sensible DEFAULT values for better user experience
+--    - Validation of allowed values happens in application code
+--
+-- 2. Optional vs Required Fields:
+--    - description: Optional (NULL allowed) - not all tasks need details
+--    - due_date: Optional (NULL allowed) - not all tasks have deadlines
+--    - title: Required (NOT NULL) - every task must have a title
+--    - status: Required (NOT NULL) - every task must have a status
+--
+-- 3. Foreign Key Relationships:
+--    - category_id links tasks to categories
+--    - This is a "many-to-one" relationship: many tasks can belong to one category
+--    - category_id can be NULL (tasks don't have to be categorized)
+--    - If category_id is set, it MUST reference a valid category (enforced by FK)
+--
+-- 4. Timestamps:
+--    - created_at tracks when records are created
+--    - Useful for sorting (show newest tasks first)
+--    - Useful for analytics (how many tasks created this week?)
+--
+-- 5. Table Relationships:
+--    - tasks.category_id → categories.id
+--    - One category can have many tasks
+--    - Each task can have zero or one category
+--
+-- ============================================================================
+-- TESTING YOUR SCHEMA
+-- ============================================================================
+-- After completing the TODOs:
+--
+-- 1. Run setup.py to create the database with your schema
+--    Command: python setup.py
+--
+-- 2. Check for syntax errors - SQLite will report any issues
+--
+-- 3. Try inserting test data:
+--    INSERT INTO categories (name) VALUES ('Work');
+--    INSERT INTO tasks (title, status, priority, category_id) 
+--    VALUES ('Complete project', 'pending', 'high', 1);
+--
+-- 4. Try querying with a JOIN:
+--    SELECT tasks.title, categories.name 
+--    FROM tasks 
+--    LEFT JOIN categories ON tasks.category_id = categories.id;
+--
+-- 5. Move on to models/todo.py to implement CRUD operations for these tables
+--
+-- ============================================================================
+-- CHALLENGE EXERCISES (Optional)
+-- ============================================================================
+-- Once you've completed the basic TODOs, try these challenges:
+--
+-- 1. Add a 'completed_at' timestamp field to track when tasks are completed
+--    (Hint: Should be NULL by default, set when status changes to 'completed')
+--
+-- 2. Add a 'tags' table for a many-to-many relationship
+--    (A task can have multiple tags, a tag can be on multiple tasks)
+--    You'll need three tables: tasks, tags, and task_tags (junction table)
+--
+-- 3. Add a CHECK constraint to ensure priority is one of the valid values
+--    (Hint: CHECK (priority IN ('low', 'medium', 'high')))
+--    Note: SQLite supports CHECK constraints but they're not always enforced
+--
+-- 4. Add an index on the status field to speed up queries filtering by status
+--    (Hint: CREATE INDEX idx_tasks_status ON tasks(status);)
+--
+-- ============================================================================
