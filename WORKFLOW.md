@@ -113,6 +113,9 @@ python database/sample_data.py  # Load sample data
 code models/library.py
 code database/schemas/library_schema.sql
 
+# View the schema diagram
+# Open docs/DATABASE_SCHEMAS.md in your browser or editor
+
 # Try it in playground
 python playground.py
 >>> demo_library()

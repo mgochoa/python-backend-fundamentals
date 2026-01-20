@@ -200,6 +200,8 @@ python test_my_code.py -v  # Verbose output for details
 
 ## 📚 Learning Resources
 
+- **[Database Schemas](docs/DATABASE_SCHEMAS.md)** - Visual ER diagrams
+- **[Schema Quick Reference](docs/SCHEMA_QUICK_REFERENCE.md)** - Schema lookup
 - [Python SQLite Docs](https://docs.python.org/3/library/sqlite3.html)
 - [SQL Tutorial](https://www.w3schools.com/sql/)
 - [Python Exceptions](https://docs.python.org/3/tutorial/errors.html)

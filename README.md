@@ -192,6 +192,8 @@ Example session:
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup and learning path guide
 - **[WORKFLOW.md](WORKFLOW.md)** - Step-by-step workflow for working through stories
 - **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference and cheat sheet
+- **[docs/DATABASE_SCHEMAS.md](docs/DATABASE_SCHEMAS.md)** - Visual database schema diagrams
+- **[docs/SCHEMA_QUICK_REFERENCE.md](docs/SCHEMA_QUICK_REFERENCE.md)** - Schema quick reference
 - **[CONCEPTS.md](CONCEPTS.md)** - Database and SQL fundamentals
 - **[exercises/EXERCISES.md](exercises/EXERCISES.md)** - Detailed exercise guide with hints
 - **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** - Detailed project organization

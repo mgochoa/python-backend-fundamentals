@@ -222,3 +222,12 @@ Track your progress on GitHub:
 4. Move to Story 2: Study the Library System
 
 Happy learning! 🚀
+
+
+## 📚 Additional Resources
+
+- **[Database Schema Diagrams](docs/DATABASE_SCHEMAS.md)** - Visual ER diagrams for all schemas
+- **[Schema Quick Reference](docs/SCHEMA_QUICK_REFERENCE.md)** - Quick schema lookup
+- [Python SQLite Documentation](https://docs.python.org/3/library/sqlite3.html)
+- [SQL Tutorial](https://www.w3schools.com/sql/)
+- [Python Exception Handling](https://docs.python.org/3/tutorial/errors.html)
