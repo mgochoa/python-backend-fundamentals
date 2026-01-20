@@ -265,3 +265,27 @@ When designing relationships:
 - [DATABASE_SCHEMAS.md](DATABASE_SCHEMAS.md) - Detailed ER diagrams and examples
 - [CONCEPTS.md](../CONCEPTS.md) - Database fundamentals
 - [QUICK_REFERENCE.md](../QUICK_REFERENCE.md) - Command reference
+
+
+---
+
+## 🔗 Navigation
+
+**You are here**: docs/SCHEMA_QUICK_REFERENCE.md (Quick lookup)
+
+**Detailed Diagrams**: [Database Schemas](DATABASE_SCHEMAS.md)
+
+**While Coding**:
+- 📋 [Workflow](../WORKFLOW.md) - Step-by-step guide
+- ⚡ [Quick Reference](../QUICK_REFERENCE.md) - Commands
+- 🧪 Test: `python test_my_code.py`
+- 🎮 Playground: `python playground.py`
+
+**Learning**:
+- 📖 [Concepts](../CONCEPTS.md) - Database fundamentals
+- 📋 [Exercises](../exercises/EXERCISES.md) - Detailed guides
+- 🔧 [Troubleshooting](../TROUBLESHOOTING.md) - Get help
+
+**Back to Start**:
+- 👋 [Start Here](../START_HERE.md)
+- 📖 [README](../README.md)

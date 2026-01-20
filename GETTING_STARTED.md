@@ -231,3 +231,22 @@ Happy learning! 🚀
 - [Python SQLite Documentation](https://docs.python.org/3/library/sqlite3.html)
 - [SQL Tutorial](https://www.w3schools.com/sql/)
 - [Python Exception Handling](https://docs.python.org/3/tutorial/errors.html)
+
+
+---
+
+## 🔗 Navigation
+
+**You are here**: GETTING_STARTED.md
+
+**Previous**: [README.md](README.md) | **Next**: [WORKFLOW.md](WORKFLOW.md)
+
+**Quick Links**:
+- 👋 [Start Here](START_HERE.md) - First steps
+- 📖 [README](README.md) - Overview
+- 📋 [Workflow](WORKFLOW.md) - Step-by-step guide
+- ⚡ [Quick Reference](QUICK_REFERENCE.md) - Commands
+- 📊 [Progress Tracker](PROGRESS_TRACKER.md) - Track progress
+- 🔧 [Troubleshooting](TROUBLESHOOTING.md) - Get help
+- 📚 [Database Schemas](docs/DATABASE_SCHEMAS.md) - Visual diagrams
+- 📖 [Concepts](CONCEPTS.md) - Fundamentals

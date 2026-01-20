@@ -1,5 +1,7 @@
 # Python Backend Learning Project
 
+**👋 New here?** Start with [START_HERE.md](START_HERE.md) for a quick orientation!
+
 A hands-on educational project designed to teach Python and SQL fundamentals through practical backend development. Learn database design, CRUD operations, data validation, and error handling by building three progressively challenging systems.
 
 ## 🎯 Learning Objectives
@@ -189,11 +191,20 @@ Example session:
 
 ## 📖 Documentation
 
+### 🚀 Getting Started
+- **[START_HERE.md](START_HERE.md)** - **👈 Start here!** Your first steps and orientation
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup and learning path guide
 - **[WORKFLOW.md](WORKFLOW.md)** - Step-by-step workflow for working through stories
+- **[NAVIGATION.md](NAVIGATION.md)** - 🗺️ Complete documentation map (find anything!)
+
+### 📚 Reference & Help
 - **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference and cheat sheet
+- **[PROGRESS_TRACKER.md](PROGRESS_TRACKER.md)** - Track your learning progress
+- **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** - Common issues and solutions
 - **[docs/DATABASE_SCHEMAS.md](docs/DATABASE_SCHEMAS.md)** - Visual database schema diagrams
 - **[docs/SCHEMA_QUICK_REFERENCE.md](docs/SCHEMA_QUICK_REFERENCE.md)** - Schema quick reference
+
+### 📖 Learning Materials
 - **[CONCEPTS.md](CONCEPTS.md)** - Database and SQL fundamentals
 - **[exercises/EXERCISES.md](exercises/EXERCISES.md)** - Detailed exercise guide with hints
 - **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** - Detailed project organization
@@ -450,3 +461,20 @@ This project was designed to provide a structured, hands-on approach to learning
 **Questions?** Check `CONCEPTS.md` for explanations of key concepts, or `exercises/EXERCISES.md` for detailed exercise instructions.
 
 **Happy Learning! 🚀**
+
+
+---
+
+## 🔗 Navigation
+
+**You are here**: README.md
+
+**Previous**: [START_HERE.md](START_HERE.md) | **Next**: [GETTING_STARTED.md](GETTING_STARTED.md)
+
+**Quick Links**:
+- 👋 [Start Here](START_HERE.md) - First steps
+- 🚀 [Getting Started](GETTING_STARTED.md) - Setup guide
+- 📋 [Workflow](WORKFLOW.md) - Step-by-step
+- ⚡ [Quick Reference](QUICK_REFERENCE.md) - Commands
+- 📊 [Progress Tracker](PROGRESS_TRACKER.md) - Track progress
+- 🔧 [Troubleshooting](TROUBLESHOOTING.md) - Get help

@@ -209,3 +209,26 @@ python test_my_code.py -v  # Verbose output for details
 ---
 
 **Need more help?** Check `GETTING_STARTED.md` for detailed instructions!
+
+
+---
+
+## 🔗 Navigation
+
+**You are here**: QUICK_REFERENCE.md (Keep this handy while coding!)
+
+**Main Guides**:
+- 📋 [Workflow](WORKFLOW.md) - Step-by-step for each story
+- 🚀 [Getting Started](GETTING_STARTED.md) - Setup guide
+- 📊 [Progress Tracker](PROGRESS_TRACKER.md) - Track your progress
+- 🔧 [Troubleshooting](TROUBLESHOOTING.md) - Common issues
+
+**Reference**:
+- 📚 [Database Schemas](docs/DATABASE_SCHEMAS.md) - Visual ER diagrams
+- 📝 [Schema Quick Ref](docs/SCHEMA_QUICK_REFERENCE.md) - Quick lookup
+- 📖 [Concepts](CONCEPTS.md) - Database fundamentals
+- 📋 [Exercises](exercises/EXERCISES.md) - Detailed guides
+
+**Back to Start**:
+- 👋 [Start Here](START_HERE.md)
+- 📖 [README](README.md)

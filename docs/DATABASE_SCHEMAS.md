@@ -360,3 +360,27 @@ conn.close()
 - Study the model implementations in `models/`
 - Complete the TODOs in `models/todo.py`
 - Design and implement the inventory system
+
+
+---
+
+## 🔗 Navigation
+
+**You are here**: docs/DATABASE_SCHEMAS.md (Visual reference)
+
+**Quick Schema Lookup**: [Schema Quick Reference](SCHEMA_QUICK_REFERENCE.md)
+
+**While Coding**:
+- 📋 [Workflow](../WORKFLOW.md) - Step-by-step guide
+- ⚡ [Quick Reference](../QUICK_REFERENCE.md) - Commands
+- 🧪 Test: `python test_my_code.py`
+- 🎮 Playground: `python playground.py`
+
+**Learning**:
+- 📖 [Concepts](../CONCEPTS.md) - Database fundamentals
+- 📋 [Exercises](../exercises/EXERCISES.md) - Detailed guides
+- 🔧 [Troubleshooting](../TROUBLESHOOTING.md) - Get help
+
+**Back to Start**:
+- 👋 [Start Here](../START_HERE.md)
+- 📖 [README](../README.md)
