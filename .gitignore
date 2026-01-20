@@ -55,6 +55,12 @@ logs/
 # Student solution files (optional - students can choose to track these)
 # exercises/solutions/my_solutions/
 
+# Task and summary files (development artifacts)
+TASK_*.md
+*_SUMMARY.md
+*_ANALYSIS.md
+*_CHECKPOINT*.md
+
 # Learning Note:
 # The .gitignore file helps keep your repository clean by excluding:
 # - Generated files (like __pycache__)
