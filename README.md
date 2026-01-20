@@ -92,7 +92,21 @@ Minimal scaffolding for independent practice. You'll design and implement:
    
    This demonstrates the Library System and provides a template for your Todo System implementation.
 
-5. **Populate with sample data (optional but recommended)**
+5. **Test your code as you work**
+   ```bash
+   python test_my_code.py
+   ```
+   
+   This interactive test script checks your TODO implementations and gives immediate feedback.
+
+6. **Explore interactively**
+   ```bash
+   python playground.py
+   ```
+   
+   Launch an interactive environment to experiment with your code safely.
+
+7. **Populate with sample data (optional but recommended)**
    ```bash
    python database/sample_data.py
    ```
@@ -119,7 +133,7 @@ Minimal scaffolding for independent practice. You'll design and implement:
    - Start with the validation functions
    - Implement `Task.create()` following the TODOs
    - Complete `Task.get_all()`, `Task.update_status()`, and `Task.delete()`
-   - Test your implementation
+   - Test your implementation with `python test_my_code.py`
 
 4. **Challenge Yourself** (`models/inventory.py`)
    - Design the complete schema
@@ -127,12 +141,59 @@ Minimal scaffolding for independent practice. You'll design and implement:
    - Handle complex relationships
    - Add business logic (stock management)
 
+## 🧪 Testing Your Code
+
+### Quick Testing (Recommended)
+
+```bash
+# Test all your TODO implementations
+python test_my_code.py
+
+# Test only validators
+python test_my_code.py --validators
+
+# Test only Todo model
+python test_my_code.py --todo
+
+# Show detailed output
+python test_my_code.py --verbose
+```
+
+The test script will:
+- ✅ Check if your functions are implemented
+- ✅ Test with valid and invalid inputs
+- ✅ Show clear success/error messages
+- ✅ Give you immediate feedback on what to fix
+
+### Interactive Playground
+
+```bash
+python playground.py
+```
+
+The playground provides an interactive environment where you can:
+- 🔍 Explore what's available with `explore()`
+- 📚 See the reference implementation with `demo_library()`
+- ✅ Test validators with `demo_validators()`
+- ✏️ Test your Task implementation with `test_task()`
+- 💻 Experiment with any Python code safely
+
+Example session:
+```python
+>>> explore()           # See what's available
+>>> demo_library()      # Watch the library system work
+>>> test_task()         # Test your Task implementation
+>>> Task.create("My task", "Description", "high")  # Try it yourself!
+>>> exit()              # Leave when done
+```
+
 ## 📖 Documentation
 
-- **[README.md](README.md)** (this file) - Project overview and setup
+- **[GETTING_STARTED.md](GETTING_STARTED.md)** - Complete setup and learning path guide
+- **[WORKFLOW.md](WORKFLOW.md)** - Step-by-step workflow for working through stories
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference and cheat sheet
 - **[CONCEPTS.md](CONCEPTS.md)** - Database and SQL fundamentals
 - **[exercises/EXERCISES.md](exercises/EXERCISES.md)** - Detailed exercise guide with hints
-- **[GITHUB_USER_STORIES.md](GITHUB_USER_STORIES.md)** - Agile user stories for GitHub project tracking
 - **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** - Detailed project organization
 
 ## 🗂️ Directory Structure

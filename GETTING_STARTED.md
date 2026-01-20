@@ -96,7 +96,54 @@ Optional extensions to enhance your learning:
 - `utils/error_handlers.py` - Custom exceptions
 - `utils/logger.py` - Logging setup
 
-## Running Tests
+## Testing Your Code
+
+### Quick Testing (Recommended for Beginners)
+
+```bash
+# Test your TODO implementations as you work
+python test_my_code.py
+
+# Test only validators
+python test_my_code.py --validators
+
+# Test only Todo model
+python test_my_code.py --todo
+
+# Show detailed output
+python test_my_code.py --verbose
+```
+
+This script will:
+- ✅ Check if your functions are implemented
+- ✅ Test with valid and invalid inputs
+- ✅ Show clear success/error messages
+- ✅ Give you immediate feedback
+
+### Interactive Playground
+
+```bash
+# Launch interactive environment
+python playground.py
+```
+
+In the playground you can:
+- 🔍 `explore()` - See what's available to test
+- 📚 `demo_library()` - See the reference implementation in action
+- ✅ `demo_validators()` - See how validation works
+- ✏️ `test_task()` - Test your Task implementation
+- 💻 Use any Python code to experiment!
+
+Example playground session:
+```python
+>>> explore()  # See what's available
+>>> demo_library()  # Watch the library system work
+>>> test_task()  # Test your Task implementation
+>>> Task.create("My task", "Description", "high")  # Try it yourself!
+>>> exit()  # Leave when done
+```
+
+### Advanced Testing (Optional)
 
 ```bash
 # Install pytest (if not already installed)
@@ -114,6 +161,14 @@ pytest tests/ -v
 
 ## Getting Help
 
+### Testing Your Work
+
+**Always test as you go!** After implementing each TODO:
+
+1. **Quick test**: `python test_my_code.py`
+2. **Interactive test**: `python playground.py` then `test_task()`
+3. **Manual test**: Try your functions in the playground
+
 ### When You're Stuck
 
 1. **Read the error message** - It tells you what's wrong
@@ -121,6 +176,7 @@ pytest tests/ -v
 3. **Study the reference** - `models/library.py` shows the patterns
 4. **Review concepts** - `CONCEPTS.md` explains fundamentals
 5. **Check exercises** - `EXERCISES.md` has detailed guides
+6. **Use the playground** - `python playground.py` to experiment
 
 ### Common Issues
 
